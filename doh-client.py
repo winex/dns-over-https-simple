@@ -19,11 +19,11 @@ def doh_query(host, url=DEFAULT_DOH_URL):
 
 
 def print_usage(argv):
-	print(""
-	+ "Usage: %s [OPTIONS] domain-name.tld[.]\n" % (argv[0])
-	+ "Options:'\n"
-	+ "	-h|--help		print this help\n"
-	+ "	-?|--????		some other option\n"
+	print(
+		f"Usage: {argv[0]} [OPTIONS] domain-name.tld[.]\n"
+		"Options:\n"
+		"	-h|--help		print this help\n"
+		"	-?|--????		some other option\n"
 	, file=sys.stderr)
 
 
