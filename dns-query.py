@@ -32,7 +32,7 @@ def doh_query(host, url=DEFAULT_DOH_URL):
 	return dns.message.from_wire(resp.content)
 
 def dns_query_dns(data, addr=DEFAULT_DNS, timeout=DEFAULT_TIMEOUT):
-	req_b64 = base64.urlsafe_b64decode(data.encode('utf-8'))
+	req_b64 = base64.urlsafe_b64decode(data + '=' * (-len(data) % 4))
 	req_raw = dns.message.from_wire(req_b64)
 	# NOTE: there is also dns.query.tls() ;)
 	resp = dns.query.udp(req_raw, where=addr[0], port=addr[1], timeout=timeout)
